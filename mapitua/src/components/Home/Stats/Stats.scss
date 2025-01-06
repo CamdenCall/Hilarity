@@ -1,0 +1,51 @@
+@use "../../../styles/var" as var;
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    margin-top: 150px;
+    .cards {
+        max-width: 1050px;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 15px;
+        .card {
+            color: white;
+            border: 1px solid var.$stroke;
+            overflow: hidden;
+            border-radius: 15px;
+            flex: 1;
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+            align-items: center;
+            min-width: 250px;
+            padding: 35px 0px;
+            background: var.$dark-gradient;
+            transition: border-color 0.25s ease-in-out;
+            .icon {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #050505;
+                border-radius: 7.5px;
+                border: 1px solid var.$stroke;
+            }
+            &:hover {
+                border: 1px solid rgba(56, 56, 77, 0.75);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .stats{
+        margin-top: 75px;
+        gap: 35px;
+    }
+}
