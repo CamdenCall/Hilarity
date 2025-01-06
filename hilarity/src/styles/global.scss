@@ -1,0 +1,102 @@
+@use "./var" as var;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: black;
+    font-family: "Raleway", serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 58px;
+    font-weight: 850;
+}
+
+h2 {
+    font-size: 38px;
+    font-weight: 800;
+}
+
+p {
+    color: white;
+    font-size: 16px;
+}
+.-s14 {
+    font-size: 14px;
+}
+.-s16 {
+    font-size: 16px;
+}
+
+.-s18 {
+    font-size: 18px;
+}
+.-s32 {
+    font-size: 32px;
+}
+.-w600 {
+    font-weight: 600;
+}
+.-italic {
+    font-style: italic;
+}
+
+section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0px 50px;
+}
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+    opacity: 1;
+}
+
+.gradient {
+    background-image: var.$gradient;
+    color: transparent;
+    background-clip: text;
+}
+
+@media screen and (max-width: 700px) {
+    h1 {
+        font-size: 48px;
+    }
+    section {
+        padding: 0px 25px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    h1 {
+        font-size: 48px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    section {
+        padding: 0px 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 40px;
+    }
+    section {
+        padding: 0px 15px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

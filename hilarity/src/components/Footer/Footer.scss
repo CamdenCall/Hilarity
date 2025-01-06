@@ -1,0 +1,99 @@
+@use "../../styles/var" as var;
+
+footer {
+    border-top: 1px solid var.$stroke;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+
+    .container {
+        max-width: 1280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        padding: 50px;
+    }
+    .footer-top {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 50px;
+        img {
+            width: 214px;
+        }
+    }
+    .footer-bottom {
+        display: flex;
+        gap: 15px;
+    }
+    .links {
+        display: flex;
+        column-gap: 100px;
+        row-gap: 35px;
+        align-items: center;
+        flex-wrap: wrap;
+        a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.25s ease-in-out;
+            padding: 0px 5px;
+            &::before {
+                content: '';
+                background-color: white;
+                position: absolute;
+                left: 0;
+                bottom: -10%;
+                width: 100%;
+                height: 0px;
+                z-index: -1;
+                transition: all .25s ease-in-out;
+              }
+              
+            &:hover::before {
+                bottom: -10%;
+                height: 120%;
+            }
+            &:hover {
+                color: black
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    footer {
+        height: 350px;
+    }
+    .container {
+        padding: 50px 25px !important;
+        .links {
+            gap: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    footer {
+        height: 300px;
+
+        .footer-top {
+            gap: 35px;
+            img {
+                width: 150px;
+            }
+        }
+        .footer-bottom p {
+            font-size: 12px;
+        }
+    }
+    .container {
+        padding: 25px 25px 25px 25px !important;
+
+        .links {
+            gap: 25px;
+        }
+    }
+}
