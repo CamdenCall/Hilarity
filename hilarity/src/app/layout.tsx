@@ -11,7 +11,6 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const [fadeIn, setFadeIn] = useState(false);
-  console.log(children)
   useEffect(() => {
     setFadeIn(true);
   }, []);
