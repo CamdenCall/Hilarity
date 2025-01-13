@@ -1,6 +1,5 @@
-"use client"
-import type { Metadata } from "next";
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Head from "next/head";
 
 import Navigation from "@/components/Nav/Nav";
 import "@/styles/global.scss";
@@ -10,13 +9,16 @@ type RootLayoutProps = {
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  const [fadeIn, setFadeIn] = useState(false);
-  useEffect(() => {
-    setFadeIn(true);
-  }, []);
+
   return (
     <html lang="en">
-      <body className={fadeIn ? "fade-in" : ""}>
+      <Head>
+        <title>My App</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/images/logo.svg" />
+      </Head>
+      <body>
         <Navigation />
         {children}
       </body>

@@ -1,30 +1,27 @@
 @use "../../../styles/var" as var;
-
-.contact {
+.job-app {
     display: flex;
-    max-width: 1050px;
-    justify-content: space-between;
-    margin-top: 200px;
-    gap: 100px;
-    flex-wrap: wrap;
-
-    .header {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    gap: 50px;
+    width: 100%;
 
     .form {
-        flex: 1;
+        width: 100%;
+        max-width: 800px;
         background: var.$dark-gradient;
-        border-radius: 15px;
+        border-radius: 10px;
         border: 1px solid var.$stroke;
         display: flex;
         flex-direction: column;
         padding: 25px;
         gap: 25px;
-        min-width: 400px;
-
+        
+        .status-text {
+            align-self: flex-start;
+            padding-left: 5px;
+        }
         .field {
             display: flex;
             flex-direction: column;
@@ -47,11 +44,11 @@
                 font-family: "Raleway", serif;
                 color: white;
                 border: 1px solid rgba(255,255,255,0.1);
-
+    
                 &::placeholder {
                     color: rgba(255,255,255,0.5);
                 }
-
+    
                 &:focus {
                     border: 1px solid rgba(255,255,255,0.15);
                 }
@@ -85,21 +82,36 @@
     }
 }
 
-@media screen and (max-width: 700px) {
-    .contact {
-        justify-content: center;
-        gap: 35px;
-        margin-top: 100px;
-        margin-bottom: 150px;
-        .header {
-            align-items: center;
-        }
+.spinner {
+    border: 7px solid black;
+    border-left-color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+  
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 }
 
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
 @media screen and (max-width: 550px) {
-    .form {
-        padding: 20px 15px !important;
-        min-width: 300px !important;
+    .job-app {
+        gap: 25px;
+        margin-top: 50px;
+
+        .form {
+            padding: 15px;
+        }
     }
 }

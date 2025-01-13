@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from "react";
+import { motion } from "motion/react"
 import "./Contact.scss";
 
 const Contact = () => {
@@ -7,8 +8,8 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
 
     const response = await fetch("/api/email", {
       method: "POST",
@@ -26,7 +27,14 @@ const Contact = () => {
   };
 
   return (
-    <section className="contact" id="contact">
+    <motion.section 
+    className="contact"
+    id="contact"
+    initial={{ opacity: 0, y: -15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={ { duration: 0.75 } }
+    viewport={{ once: true }}
+    >
       <div className="header">
         <h2 className="gradient">Contact</h2>
         <p className="-s16">Where Style Meets the Digital Future.</p>
@@ -56,7 +64,7 @@ const Contact = () => {
 
         <button type="submit">Submit</button>
       </form>
-    </section>
+    </motion.section>
   );
 };
 

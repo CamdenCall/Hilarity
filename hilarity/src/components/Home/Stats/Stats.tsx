@@ -1,34 +1,44 @@
+"use client"
 import "./Stats.scss"
+import Counter from "@/components/Counter/Counter";
+import { motion } from "motion/react"
+
 
 const Stats = () => {
     return (
-      <section className="stats">
+    <motion.section 
+    className="stats"
+    initial={{ opacity: 0, y: -15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={ { duration: 0.75 } }
+    viewport={{ once: true }}
+    >
         <h2 className="gradient">Our Statistics</h2>
         <div className="cards">
             <div className="card">
                 <div className="icon">
                     <img src="/images/sales.svg" />
                 </div>
-                <div className="-s32 -w600 -italic">500,000</div>
+                <Counter start={0} end={500000} duration={2000} />
                 <div className="-s16">Sales</div>
             </div>
             <div className="card">
                 <div className="icon">
                     <img src="/images/favorite.svg" />
                 </div>
-                <div className="-s32 -w600 -italic">30,000</div>
+                <Counter start={0} end={30000} duration={2000} />
                 <div className="-s16">Favorites</div>
             </div>
             <div className="card">
                 <div className="icon">
                     <img src="/images/staff.svg" />
                 </div>
-                <div className="-s32 -w600 -italic">10</div>
+                <Counter start={0} end={10} duration={2000} />
                 <div className="-s16">Staff Members</div>
             </div>
             
         </div>
-      </section>
+      </motion.section>
     );
   };
   
