@@ -1,4 +1,4 @@
 [build]
-  base = "hilarity"
+  base = "hilarity/"
   command = "npm run build"  # Adjust to your project's build command
   publish = "build"          # Adjust to your project's output folder
