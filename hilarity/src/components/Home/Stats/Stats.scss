@@ -45,7 +45,7 @@
 }
 
 .number {
-    font-family: "Montserrat", serif;
+    font-family: var(--font-montserrat), serif;
 }
 
 @media screen and (max-width: 700px) {
