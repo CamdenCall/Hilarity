@@ -13,8 +13,10 @@ export default function Careers() {
 
   return (
     <>
-      <Header />
-      <JobBoard />
+      <main>
+        <Header />
+        <JobBoard />
+      </main>
       <Footer />
     </>
   );
