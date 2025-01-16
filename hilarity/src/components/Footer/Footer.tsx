@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         <div className="footer-bottom">
           <img src="/images/copyright.svg" />
-          <p className="-s16 -left">2025 MAPITUIA Copyright. All Rights Reserved</p>
+          <p className="-s16 -left">2025 HILARITY Copyright. All Rights Reserved</p>
         </div>
       </div>
     </motion.footer>
