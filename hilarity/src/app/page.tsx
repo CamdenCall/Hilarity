@@ -8,7 +8,7 @@ import "@/styles/global.scss";
 
 export const metadata: Metadata = {
   title: 'Hilarity',
-  description: 'Premier Digital Attire Company',
+  description: 'Premier Digital Fashion, Redefined.',
   icons: {
     icon: "/images/logo.svg",
   }
