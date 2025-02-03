@@ -24,7 +24,7 @@ export function sendEmail(email: string, message: string) {
     `;
 
     transporter.sendMail({
-        to: "camcan2007c@gmail.com",
+        to: "hello@hilarity.io",
         subject: "New Message From Hilarity",
         html: message
     }).then(() => {
@@ -56,7 +56,7 @@ export function sendApplication(jobName: string, answers: Array<{ question: stri
 
 
     transporter.sendMail({
-        to: "camcan2007c@gmail.com",
+        to: "hello@hilarity.io",
         subject: "New Hilarity Job Application",
         html: message
     }).then(() => {

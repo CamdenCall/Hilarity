@@ -13,9 +13,7 @@ const CareersHeader = () => {
       >
         <section className="careers-header">
           <h1 className="gradient">Careers</h1>
-          <p className="-s18">Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.
+          <p className="-s18 offwhite">Hilarity is among some of the world-class digital fashion creators across the metaverse. At Hilarity, we pride ourselves on fostering a collaborative and innovative environment where creativity thrives. We value creativity, passion, and the drive to push boundaries in the world of digital fashion.
           </p>
 
         </section>
