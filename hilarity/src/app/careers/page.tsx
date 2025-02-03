@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Footer from '@/components/Footer/Footer'
-import JobApplication from '@/components/Careers/Application/Application';
+import JobBoard from '@/components/Careers/Jobs/Jobs';
+import CareersHeader from '@/components/Careers/Header/Header';
 import { motion } from "motion/react"
 export const metadata: Metadata = {
   title: 'Hilarity Careers',
@@ -11,17 +12,12 @@ export const metadata: Metadata = {
 }
 export default function Careers() {
   return (
-   <>
-   <motion.section
-       className="home-header"
-       initial={{ opacity: 0, y: -15 }}
-       whileInView={{ opacity: 1, y: 0 }}
-       transition={ { duration: 0.75 } }
-       viewport={{ once: true }}
-       >
-   <JobApplication />
-   </motion.section>
-    <Footer />
-   </>
+    <>
+      <div>
+        <CareersHeader />
+        <JobBoard />
+      </div>
+      <Footer />
+    </>
   );
 }

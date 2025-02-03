@@ -6,7 +6,8 @@ import { client } from "@/sanity/client";
 import { useEffect, useState } from "react";
 
 const POSTS_QUERY = `*[_type == "job" && lower(name) == $jobName] {
-    questions
+    questions,
+    longDescription
   }`;
 const options = { next: { revalidate: 30 } };
 
@@ -29,6 +30,7 @@ export default function JobApplication() {
         async function fetchData() {
             setLoading(true);
             const result = await client.fetch<SanityDocument[]>(POSTS_QUERY, { jobName }, options);
+            console.log(result);
             setQuestions(result);
             setLoading(false);
         }
@@ -69,6 +71,9 @@ export default function JobApplication() {
     return (
         <section className="job-app">
             <h1 className="-s24 -w600 -white">{capitalizeFirstLetter(jobName)} Application</h1>
+            {questions[0] && (
+                <p className="-s16">{questions[0].longDescription}</p>
+            )}
             <form className="form" onSubmit={handleSubmit}>
             {loading ? (
                 <div className="spinner"></div>

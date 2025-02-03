@@ -12,6 +12,7 @@
     margin: 0 auto;
     border: 1px solid var.$stroke;
     margin-top: 75px;
+    animation: fadeIn 0.75s linear;
     .job-header {
         padding: 25px 25px 25px 30px;
         background-color: black;
@@ -91,5 +92,14 @@
         .apply {
             width: 100% !important;
         }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

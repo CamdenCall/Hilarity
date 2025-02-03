@@ -43,7 +43,7 @@ footer {
             padding: 0px 5px;
             &::before {
                 content: '';
-                background-color: white;
+                background: var.$gradient;
                 position: absolute;
                 left: 0;
                 bottom: -10%;
@@ -58,7 +58,7 @@ footer {
                 height: 120%;
             }
             &:hover {
-                color: black
+                color: black;
             }
         }
     }

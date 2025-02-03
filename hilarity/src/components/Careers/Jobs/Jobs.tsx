@@ -7,7 +7,7 @@ const options = { next: { revalidate: 30 } };
 export default async function JobBoard() {
   const jobs = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
   return (
-    <section className="test">
+    <section>
       <div className="job-board">
         <div className="job-header">
           Job Board
