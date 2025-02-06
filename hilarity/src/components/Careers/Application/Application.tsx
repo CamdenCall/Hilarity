@@ -2,25 +2,22 @@
 import "./Application.scss"
 import { usePathname } from 'next/navigation'
 import { type SanityDocument } from "next-sanity";
-import { client } from "@/sanity/client";
 import { useEffect, useState } from "react";
+import { fetchSanityData } from "@/lib/application";
 
-const POSTS_QUERY = `*[_type == "job" && lower(name) == $jobName] {
-    questions,
-    longDescription
-  }`;
-const options = { next: { revalidate: 30 } };
 
-function capitalizeFirstLetter(str: string | undefined) {
+
+function capitalizeWords(str: string | undefined) {
     if (str == null) {
       return null;
     }
-    return str.charAt(0).toUpperCase() + str.slice(1);
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
 export default function JobApplication() {
     const pathname = usePathname();
-    const jobName = pathname.split('/').pop()?.toLowerCase();
+    let jobName = pathname.split('/').pop()?.toLowerCase() || "";
+    jobName = decodeURIComponent(jobName).replace(/%20/g, ' '); 
     const [questions, setQuestions] = useState<SanityDocument[]>([]);
     const [answers, setAnswers] = useState<{ question: string, value: string }[]>([]);
     const [loading, setLoading] = useState(true);
@@ -29,10 +26,15 @@ export default function JobApplication() {
     useEffect(() => {
         async function fetchData() {
             setLoading(true);
-            const result = await client.fetch<SanityDocument[]>(POSTS_QUERY, { jobName }, options);
-            console.log(result);
-            setQuestions(result);
-            setLoading(false);
+            try {
+                console.log(jobName)
+                const result = await fetchSanityData(jobName);
+                setQuestions(result);
+            } catch (error) {
+                console.log("Error fetching data:", error);
+            } finally {
+                setLoading(false);
+            }
         }
         fetchData();
     }, [jobName]);
@@ -70,7 +72,7 @@ export default function JobApplication() {
 
     return (
         <section className="job-app">
-            <h1 className="-s24 -w600 -white">{capitalizeFirstLetter(jobName)} Application</h1>
+            <h1 className="-s24 -w600 -white">{capitalizeWords(jobName)} Application</h1>
             {questions[0] && (
                 <p className="-s16">{questions[0].longDescription}</p>
             )}
