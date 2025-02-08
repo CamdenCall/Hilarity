@@ -16,14 +16,14 @@ const transporter = nodemailer.createTransport({
 });
 
 
-export function sendEmail(email: string, message: string) {
+export async function sendEmail(email: string, message: string) {
     var message = `
     <h1>New Message From Hilarity</h1>
     <p>Email: ${email}</p>
     <p>Message: ${message}</p>
     `;
 
-    transporter.sendMail({
+    await transporter.sendMail({
         to: "saptinum@gmail.com",
         subject: "New Message From Hilarity",
         html: message
