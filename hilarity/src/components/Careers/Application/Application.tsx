@@ -17,7 +17,7 @@ function capitalizeWords(str: string | undefined) {
 export default function JobApplication() {
     const pathname = usePathname();
     let jobName = pathname.split('/').pop()?.toLowerCase() || "";
-    jobName = decodeURIComponent(jobName).replace(/%20/g, ' '); 
+    jobName = decodeURIComponent(jobName).replace(/-/g, ' '); 
     const [questions, setQuestions] = useState<SanityDocument[]>([]);
     const [answers, setAnswers] = useState<{ question: string, value: string }[]>([]);
     const [loading, setLoading] = useState(true);
@@ -72,9 +72,9 @@ export default function JobApplication() {
 
     return (
         <section className="job-app">
-            <h1 className="-s24 -w600 -white">{capitalizeWords(jobName)} Application</h1>
+            <h1 className="-s32 -w600 -white">{capitalizeWords(jobName)} Application</h1>
             {questions[0] && (
-                <p className="-s16">{questions[0].longDescription}</p>
+                <p className="-s16 job-description" dangerouslySetInnerHTML={{ __html: questions[0].longDescription.replace(/\n/g, '<br>') }}></p>
             )}
             <form className="form" onSubmit={handleSubmit}>
             {loading ? (

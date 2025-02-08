@@ -1,7 +1,8 @@
 import "./Jobs.scss"
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
-const POSTS_QUERY = `*[_type == "job"]`;
+const POSTS_QUERY = `*[_type == "job" && !(_id in path("drafts.**"))]`;
+
 const options = { next: { revalidate: 30 } };
 
 export default async function JobBoard() {
@@ -11,7 +12,7 @@ export default async function JobBoard() {
     <section>
       <div className="job-board">
         <div className="job-header">
-          Job Board
+          Career Board
         </div>
         <div className="jobs">
           {jobs.map((job) => (
@@ -20,7 +21,7 @@ export default async function JobBoard() {
                 <div className="-s18 -w600">{job.name}</div>
                 <p className="s-16">{job.description}</p>
               </div>
-              <a href={`/jobs/${job.name.toLowerCase()}`} className="apply -w600 gradient">
+              <a href={`/careers/${job.name.toLowerCase().replace(/ /g, '-')}`} className="apply -w600 gradient">
                 Apply
                 <img src="/images/link.svg" />
               </a>

@@ -30,15 +30,16 @@
             border: 1px solid var.$stroke;
             padding: 25px;
             border-radius: 10px;
-            gap: 50px;
+            row-gap: 25px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             .details {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 10px;
+                gap: 10px;  
+                 
             }
             .apply {
                 display: flex;
@@ -68,6 +69,16 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    .job {
+        flex-direction: column;
+
+        .apply {
+            width: 100% !important;
+        }
+    }
+}
+
 @media screen and (max-width: 700px) {
     .job-board {
         margin-top: 50px;
@@ -89,6 +100,10 @@
 
         .details {
             flex: 1;
+
+            p {
+                font-size: 14px;
+            }
         }
         .apply {
             width: 100% !important;
