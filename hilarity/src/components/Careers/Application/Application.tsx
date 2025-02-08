@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { type SanityDocument } from "next-sanity";
 import { useEffect, useState } from "react";
 import { fetchSanityData } from "@/lib/application";
+import JobDescription from "../JobDescription/JobDescription";
 
 
 
@@ -27,8 +28,8 @@ export default function JobApplication() {
         async function fetchData() {
             setLoading(true);
             try {
-                console.log(jobName)
                 const result = await fetchSanityData(jobName);
+                console.log(result)
                 setQuestions(result);
             } catch (error) {
                 console.log("Error fetching data:", error);
@@ -74,7 +75,7 @@ export default function JobApplication() {
         <section className="job-app">
             <h1 className="-s32 -w600 -white">{capitalizeWords(jobName)} Application</h1>
             {questions[0] && (
-                <p className="-s16 job-description" dangerouslySetInnerHTML={{ __html: questions[0].longDescription.replace(/\n/g, '<br>') }}></p>
+                <JobDescription content={questions[0].longDescription} />
             )}
             <form className="form" onSubmit={handleSubmit}>
             {loading ? (

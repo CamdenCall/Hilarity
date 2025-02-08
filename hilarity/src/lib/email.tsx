@@ -30,7 +30,6 @@ export async function sendEmail(email: string, message: string) {
     }).then(() => {
         return true
     }).catch((error) => {
-        console.error('Error:', error);
         return false
     });
 }
@@ -54,9 +53,8 @@ export function sendApplication(jobName: string, answers: Array<{ question: stri
     </div>
     `;
 
-    console.log(message);
     transporter.sendMail({
-        to: "camcan2007c@gmail.com",
+        to: "saptinum@gmail.com",
         subject: "New Hilarity Job Application",
         html: message
     }).then(() => {

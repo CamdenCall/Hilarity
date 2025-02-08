@@ -16,7 +16,6 @@ export async function POST(req: NextRequest) {
 
   try {
     const { jobName, answers } = await req.json();
-    console.log(jobName, answers);
     sendApplication(jobName, answers);
     return NextResponse.json({ message: 'Application sent successfully' }, { status: 200 });
   } catch (error) {
