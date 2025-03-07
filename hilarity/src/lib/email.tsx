@@ -44,6 +44,7 @@ export function sendApplication(jobName: string, answers: Array<{ question: stri
         message += `
         <div>
             <p style="font-family: Arial; color: #fff; font-weight: 600; font-size: 18px;margin:0;padding:0;">${answer.question}</p>
+            <br>
             <p style="font-family: Arial; color: #fff;margin:0;padding:0;">${answer.value}</p>
         </div>
         `;
@@ -54,7 +55,7 @@ export function sendApplication(jobName: string, answers: Array<{ question: stri
     `;
 
     transporter.sendMail({
-        to: "camcan2007c@gmail.com",
+        to: "saptinum@gmail.com",
         subject: "New Hilarity Job Application",
         html: message
     }).then(() => {
