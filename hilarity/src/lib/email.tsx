@@ -54,7 +54,7 @@ export function sendApplication(jobName: string, answers: Array<{ question: stri
     `;
 
     transporter.sendMail({
-        to: "saptinum@gmail.com",
+        to: "camcan2007c@gmail.com",
         subject: "New Hilarity Job Application",
         html: message
     }).then(() => {

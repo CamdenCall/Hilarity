@@ -29,7 +29,6 @@ export default function JobApplication() {
             setLoading(true);
             try {
                 const result = await fetchSanityData(jobName);
-                console.log(result)
                 setQuestions(result);
             } catch (error) {
                 console.log("Error fetching data:", error);
